@@ -4,7 +4,7 @@ class ChecklistsController < ApplicationController
   # GET /checklists
   # GET /checklists.json
   def index
-    @checklists = Checklist.all
+    @checklists = Checklist.page(params[:page]).per(10)
   end
 
   # GET /checklists/1

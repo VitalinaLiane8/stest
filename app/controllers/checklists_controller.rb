@@ -15,6 +15,7 @@ class ChecklistsController < ApplicationController
   # GET /checklists/new
   def new
     @checklist = Checklist.new
+    @checklist.questions.build
   end
 
   # GET /checklists/1/edit
@@ -69,6 +70,7 @@ class ChecklistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def checklist_params
-      params.require(:checklist).permit(:title, :description)
+      params.require(:checklist).permit(:title, :description,
+        questions_attributes: Question.attribute_names.map(&:to_sym).push(:_destroy))
     end
 end

@@ -10,5 +10,15 @@
   <%= @checklist.description %>
 </p>
 
+<p>
+  <strong>Question Title:</strong>
+  <%= @checklist.questions.last.title %>
+</p>
+
+<p>
+  <strong>Question Description:</strong>
+  <%= @checklist.questions.last.description %>
+</p>
+
 <%= link_to 'Edit', edit_checklist_path(@checklist) %> |
 <%= link_to 'Back', checklists_path %>

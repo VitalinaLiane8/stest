@@ -1,0 +1,28 @@
+%p#notice= notice
+%p
+  %strong Checklist Title:
+  = @checklist.title
+%p
+  %strong Checklist Description:
+  = @checklist.description
+  
+  
+%table.table
+  %thead
+    %tr
+      %th Question Title
+      %th Description
+        
+  %tbody.fields
+    - @checklist.questions.each do |question|   
+      %tr
+        %td 
+          = question.title
+
+        %td 
+          = question.description
+
+  
+= link_to 'Edit', edit_checklist_path(@checklist)
+|
+\#{link_to 'Back', checklists_path}
